@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -26,60 +26,80 @@ class SupportedApiVersionsModel {
   ApiVersionModel currentVersion;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SupportedApiVersionsModel &&
-     other.minimumSupportedVersion == minimumSupportedVersion &&
-     other.deprecatedVersion == deprecatedVersion &&
-     other.currentVersion == currentVersion;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SupportedApiVersionsModel &&
+          other.minimumSupportedVersion == minimumSupportedVersion &&
+          other.deprecatedVersion == deprecatedVersion &&
+          other.currentVersion == currentVersion;
 
   @override
   int get hashCode =>
-    (minimumSupportedVersion == null ? 0 : minimumSupportedVersion.hashCode) +
-    (deprecatedVersion == null ? 0 : deprecatedVersion.hashCode) +
-    (currentVersion == null ? 0 : currentVersion.hashCode);
+      (minimumSupportedVersion == null ? 0 : minimumSupportedVersion.hashCode) +
+      (deprecatedVersion == null ? 0 : deprecatedVersion.hashCode) +
+      (currentVersion == null ? 0 : currentVersion.hashCode);
 
   @override
-  String toString() => 'SupportedApiVersionsModel[minimumSupportedVersion=$minimumSupportedVersion, deprecatedVersion=$deprecatedVersion, currentVersion=$currentVersion]';
+  String toString() =>
+      'SupportedApiVersionsModel[minimumSupportedVersion=$minimumSupportedVersion, deprecatedVersion=$deprecatedVersion, currentVersion=$currentVersion]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'minimumSupportedVersion'] = minimumSupportedVersion;
-      json[r'deprecatedVersion'] = deprecatedVersion;
-      json[r'currentVersion'] = currentVersion;
+    json[r'minimumSupportedVersion'] = minimumSupportedVersion;
+    json[r'deprecatedVersion'] = deprecatedVersion;
+    json[r'currentVersion'] = currentVersion;
     return json;
   }
 
   /// Returns a new [SupportedApiVersionsModel] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static SupportedApiVersionsModel fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : SupportedApiVersionsModel(
-        minimumSupportedVersion: ApiVersionModel.fromJson(json[r'minimumSupportedVersion']),
-        deprecatedVersion: ApiVersionModel.fromJson(json[r'deprecatedVersion']),
-        currentVersion: ApiVersionModel.fromJson(json[r'currentVersion']),
-    );
+  static SupportedApiVersionsModel fromJson(Map<String, dynamic> json) =>
+      json == null
+          ? null
+          : SupportedApiVersionsModel(
+              minimumSupportedVersion:
+                  ApiVersionModel.fromJson(json[r'minimumSupportedVersion']),
+              deprecatedVersion:
+                  ApiVersionModel.fromJson(json[r'deprecatedVersion']),
+              currentVersion: ApiVersionModel.fromJson(json[r'currentVersion']),
+            );
 
-  static List<SupportedApiVersionsModel> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <SupportedApiVersionsModel>[]
-      : json.map((v) => SupportedApiVersionsModel.fromJson(v)).toList(growable: true == growable);
+  static List<SupportedApiVersionsModel> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <SupportedApiVersionsModel>[]
+          : json
+              .map((v) => SupportedApiVersionsModel.fromJson(v))
+              .toList(growable: true == growable);
 
-  static Map<String, SupportedApiVersionsModel> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, SupportedApiVersionsModel> mapFromJson(
+      Map<String, dynamic> json) {
     final map = <String, SupportedApiVersionsModel>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = SupportedApiVersionsModel.fromJson(v));
+      json.forEach((String key, dynamic v) =>
+          map[key] = SupportedApiVersionsModel.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of SupportedApiVersionsModel-objects as value to a dart map
-  static Map<String, List<SupportedApiVersionsModel>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<SupportedApiVersionsModel>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<SupportedApiVersionsModel>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = SupportedApiVersionsModel.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = SupportedApiVersionsModel.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-

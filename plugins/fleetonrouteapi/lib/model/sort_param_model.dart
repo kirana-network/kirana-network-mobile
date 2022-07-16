@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -21,59 +21,72 @@ class SortParamModel {
   SortParamModelOrderEnum order;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SortParamModel &&
-     other.field == field &&
-     other.order == order;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SortParamModel && other.field == field && other.order == order;
 
   @override
   int get hashCode =>
-    (field == null ? 0 : field.hashCode) +
-    (order == null ? 0 : order.hashCode);
+      (field == null ? 0 : field.hashCode) +
+      (order == null ? 0 : order.hashCode);
 
   @override
   String toString() => 'SortParamModel[field=$field, order=$order]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'field'] = field;
-      json[r'order'] = order;
+    json[r'field'] = field;
+    json[r'order'] = order;
     return json;
   }
 
   /// Returns a new [SortParamModel] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
   static SortParamModel fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : SortParamModel(
-        field: json[r'field'],
-        order: SortParamModelOrderEnum.fromJson(json[r'order']),
-    );
+      ? null
+      : SortParamModel(
+          field: json[r'field'],
+          order: SortParamModelOrderEnum.fromJson(json[r'order']),
+        );
 
-  static List<SortParamModel> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <SortParamModel>[]
-      : json.map((v) => SortParamModel.fromJson(v)).toList(growable: true == growable);
+  static List<SortParamModel> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <SortParamModel>[]
+          : json
+              .map((v) => SortParamModel.fromJson(v))
+              .toList(growable: true == growable);
 
   static Map<String, SortParamModel> mapFromJson(Map<String, dynamic> json) {
     final map = <String, SortParamModel>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = SortParamModel.fromJson(v));
+      json.forEach(
+          (String key, dynamic v) => map[key] = SortParamModel.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of SortParamModel-objects as value to a dart map
-  static Map<String, List<SortParamModel>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<SortParamModel>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<SortParamModel>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = SortParamModel.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = SortParamModel.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-
 
 class SortParamModelOrderEnum {
   /// Instantiate a new enum with the provided [value].
@@ -101,14 +114,20 @@ class SortParamModelOrderEnum {
   ];
 
   static SortParamModelOrderEnum fromJson(dynamic value) =>
-    SortParamModelOrderEnumTypeTransformer().decode(value);
+      SortParamModelOrderEnumTypeTransformer().decode(value);
 
-  static List<SortParamModelOrderEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <SortParamModelOrderEnum>[]
-      : json
-          .map((value) => SortParamModelOrderEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<SortParamModelOrderEnum> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <SortParamModelOrderEnum>[]
+          : json
+              .map((value) => SortParamModelOrderEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [SortParamModelOrderEnum] to String,
@@ -116,7 +135,8 @@ class SortParamModelOrderEnum {
 class SortParamModelOrderEnumTypeTransformer {
   const SortParamModelOrderEnumTypeTransformer._();
 
-  factory SortParamModelOrderEnumTypeTransformer() => _instance ??= SortParamModelOrderEnumTypeTransformer._();
+  factory SortParamModelOrderEnumTypeTransformer() =>
+      _instance ??= SortParamModelOrderEnumTypeTransformer._();
 
   String encode(SortParamModelOrderEnum data) => data.value;
 
@@ -130,10 +150,14 @@ class SortParamModelOrderEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   SortParamModelOrderEnum decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case r'asc': return SortParamModelOrderEnum.asc;
-      case r'desc': return SortParamModelOrderEnum.desc;
-      case r'ASC': return SortParamModelOrderEnum.ASC;
-      case r'DESC': return SortParamModelOrderEnum.DESC;
+      case r'asc':
+        return SortParamModelOrderEnum.asc;
+      case r'desc':
+        return SortParamModelOrderEnum.desc;
+      case r'ASC':
+        return SortParamModelOrderEnum.ASC;
+      case r'DESC':
+        return SortParamModelOrderEnum.DESC;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -145,4 +169,3 @@ class SortParamModelOrderEnumTypeTransformer {
   /// Singleton [SortParamModelOrderEnumTypeTransformer] instance.
   static SortParamModelOrderEnumTypeTransformer _instance;
 }
-

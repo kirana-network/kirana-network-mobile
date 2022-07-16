@@ -1,14 +1,13 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
 part of fleetonrouteapi;
-
 
 class TripsApi {
   TripsApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
@@ -25,7 +24,8 @@ class TripsApi {
   Future<Response> createTripWithHttpInfo(TripModel tripModel) async {
     // Verify required params are set.
     if (tripModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripModel');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripModel');
     }
 
     final path = r'/api/trips';
@@ -37,20 +37,18 @@ class TripsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -78,8 +76,9 @@ class TripsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'TripModel') as TripModel;
-        }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'TripModel')
+          as TripModel;
+    }
     return Future<TripModel>.value(null);
   }
 
@@ -92,17 +91,20 @@ class TripsApi {
   /// * [String] tripId (required):
   ///
   /// * [TripNoteModel] tripNoteModel (required):
-  Future<Response> createTripNoteWithHttpInfo(String tripId, TripNoteModel tripNoteModel) async {
+  Future<Response> createTripNoteWithHttpInfo(
+      String tripId, TripNoteModel tripNoteModel) async {
     // Verify required params are set.
     if (tripId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripId');
     }
     if (tripNoteModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripNoteModel');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripNoteModel');
     }
 
     final path = r'/api/trips/{tripId}/notes'
-      .replaceAll('{' + 'tripId' + '}', tripId.toString());
+        .replaceAll('{' + 'tripId' + '}', tripId.toString());
 
     Object postBody = tripNoteModel;
 
@@ -111,20 +113,18 @@ class TripsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -145,7 +145,8 @@ class TripsApi {
   /// * [String] tripId (required):
   ///
   /// * [TripNoteModel] tripNoteModel (required):
-  Future<ListOfTripNotesModel> createTripNote(String tripId, TripNoteModel tripNoteModel) async {
+  Future<ListOfTripNotesModel> createTripNote(
+      String tripId, TripNoteModel tripNoteModel) async {
     final response = await createTripNoteWithHttpInfo(tripId, tripNoteModel);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -154,8 +155,10 @@ class TripsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ListOfTripNotesModel') as ListOfTripNotesModel;
-        }
+      return apiClient.deserialize(
+              _decodeBodyBytes(response), 'ListOfTripNotesModel')
+          as ListOfTripNotesModel;
+    }
     return Future<ListOfTripNotesModel>.value(null);
   }
 
@@ -168,18 +171,21 @@ class TripsApi {
   /// * [String] tripNoteId (required):
   ///
   /// * [String] tripId (required):
-  Future<Response> deleteTripNoteWithHttpInfo(String tripNoteId, String tripId) async {
+  Future<Response> deleteTripNoteWithHttpInfo(
+      String tripNoteId, String tripId) async {
     // Verify required params are set.
     if (tripNoteId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripNoteId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripNoteId');
     }
     if (tripId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripId');
     }
 
     final path = r'/api/trips/{tripId}/notes/{tripNoteId}'
-      .replaceAll('{' + 'tripNoteId' + '}', tripNoteId.toString())
-      .replaceAll('{' + 'tripId' + '}', tripId.toString());
+        .replaceAll('{' + 'tripNoteId' + '}', tripNoteId.toString())
+        .replaceAll('{' + 'tripId' + '}', tripId.toString());
 
     Object postBody;
 
@@ -188,20 +194,18 @@ class TripsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -232,7 +236,7 @@ class TripsApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'bool') as bool;
-        }
+    }
     return Future<bool>.value(null);
   }
 
@@ -246,11 +250,12 @@ class TripsApi {
   Future<Response> listTripNotesWithHttpInfo(String tripId) async {
     // Verify required params are set.
     if (tripId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripId');
     }
 
     final path = r'/api/trips/{tripId}/notes'
-      .replaceAll('{' + 'tripId' + '}', tripId.toString());
+        .replaceAll('{' + 'tripId' + '}', tripId.toString());
 
     Object postBody;
 
@@ -259,20 +264,18 @@ class TripsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -300,8 +303,10 @@ class TripsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ListOfTripNotesModel') as ListOfTripNotesModel;
-        }
+      return apiClient.deserialize(
+              _decodeBodyBytes(response), 'ListOfTripNotesModel')
+          as ListOfTripNotesModel;
+    }
     return Future<ListOfTripNotesModel>.value(null);
   }
 
@@ -314,7 +319,7 @@ class TripsApi {
   /// Parameters:
   ///
   /// * [List<String>] organizationIds:
-  Future<Response> listTripsWithHttpInfo({ List<String> organizationIds }) async {
+  Future<Response> listTripsWithHttpInfo({List<String> organizationIds}) async {
     // Verify required params are set.
 
     final path = r'/api/trips';
@@ -326,24 +331,23 @@ class TripsApi {
     final formParams = <String, String>{};
 
     if (organizationIds != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('multi', 'organizationIds', organizationIds));
+      queryParams.addAll(_convertParametersForCollectionFormat(
+          'multi', 'organizationIds', organizationIds));
     }
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -364,8 +368,9 @@ class TripsApi {
   /// Parameters:
   ///
   /// * [List<String>] organizationIds:
-  Future<ListOfTripsModel> listTrips({ List<String> organizationIds }) async {
-    final response = await listTripsWithHttpInfo( organizationIds: organizationIds );
+  Future<ListOfTripsModel> listTrips({List<String> organizationIds}) async {
+    final response =
+        await listTripsWithHttpInfo(organizationIds: organizationIds);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -373,8 +378,9 @@ class TripsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ListOfTripsModel') as ListOfTripsModel;
-        }
+      return apiClient.deserialize(
+          _decodeBodyBytes(response), 'ListOfTripsModel') as ListOfTripsModel;
+    }
     return Future<ListOfTripsModel>.value(null);
   }
 
@@ -388,11 +394,12 @@ class TripsApi {
   Future<Response> retrieveProofOfDeliveryWithHttpInfo(String tripId) async {
     // Verify required params are set.
     if (tripId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripId');
     }
 
     final path = r'/api/trips/{tripId}/proof-of-delivery'
-      .replaceAll('{' + 'tripId' + '}', tripId.toString());
+        .replaceAll('{' + 'tripId' + '}', tripId.toString());
 
     Object postBody;
 
@@ -401,20 +408,18 @@ class TripsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -433,7 +438,8 @@ class TripsApi {
   /// Parameters:
   ///
   /// * [String] tripId (required):
-  Future<TripProofOfDeliveryModel> retrieveProofOfDelivery(String tripId) async {
+  Future<TripProofOfDeliveryModel> retrieveProofOfDelivery(
+      String tripId) async {
     final response = await retrieveProofOfDeliveryWithHttpInfo(tripId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -442,8 +448,10 @@ class TripsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'TripProofOfDeliveryModel') as TripProofOfDeliveryModel;
-        }
+      return apiClient.deserialize(
+              _decodeBodyBytes(response), 'TripProofOfDeliveryModel')
+          as TripProofOfDeliveryModel;
+    }
     return Future<TripProofOfDeliveryModel>.value(null);
   }
 
@@ -457,11 +465,12 @@ class TripsApi {
   Future<Response> retrieveTripWithHttpInfo(String tripId) async {
     // Verify required params are set.
     if (tripId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripId');
     }
 
     final path = r'/api/trips/{tripId}'
-      .replaceAll('{' + 'tripId' + '}', tripId.toString());
+        .replaceAll('{' + 'tripId' + '}', tripId.toString());
 
     Object postBody;
 
@@ -470,20 +479,18 @@ class TripsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -511,8 +518,9 @@ class TripsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'TripModel') as TripModel;
-        }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'TripModel')
+          as TripModel;
+    }
     return Future<TripModel>.value(null);
   }
 
@@ -526,11 +534,12 @@ class TripsApi {
   Future<Response> retrieveTripStatusWithHttpInfo(String tripId) async {
     // Verify required params are set.
     if (tripId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripId');
     }
 
     final path = r'/api/trips/{tripId}/status'
-      .replaceAll('{' + 'tripId' + '}', tripId.toString());
+        .replaceAll('{' + 'tripId' + '}', tripId.toString());
 
     Object postBody;
 
@@ -539,20 +548,18 @@ class TripsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -580,8 +587,9 @@ class TripsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'TripModel') as TripModel;
-        }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'TripModel')
+          as TripModel;
+    }
     return Future<TripModel>.value(null);
   }
 
@@ -594,17 +602,20 @@ class TripsApi {
   /// * [String] tripId (required):
   ///
   /// * [TripModel] tripModel (required):
-  Future<Response> updateTripWithHttpInfo(String tripId, TripModel tripModel) async {
+  Future<Response> updateTripWithHttpInfo(
+      String tripId, TripModel tripModel) async {
     // Verify required params are set.
     if (tripId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripId');
     }
     if (tripModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripModel');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripModel');
     }
 
     final path = r'/api/trips/{tripId}'
-      .replaceAll('{' + 'tripId' + '}', tripId.toString());
+        .replaceAll('{' + 'tripId' + '}', tripId.toString());
 
     Object postBody = tripModel;
 
@@ -613,20 +624,18 @@ class TripsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -656,8 +665,9 @@ class TripsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'TripModel') as TripModel;
-        }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'TripModel')
+          as TripModel;
+    }
     return Future<TripModel>.value(null);
   }
 
@@ -680,13 +690,19 @@ class TripsApi {
   /// * [String] createdBy:
   ///
   /// * [num] createdAt:
-  Future<Response> uploadProofOfDeliveryWithHttpInfo(String tripId, String type, { String recipientName, String photoUrl, MultipartFile photofile, String createdBy, num createdAt }) async {
+  Future<Response> uploadProofOfDeliveryWithHttpInfo(String tripId, String type,
+      {String recipientName,
+      String photoUrl,
+      MultipartFile photofile,
+      String createdBy,
+      num createdAt}) async {
     // Verify required params are set.
     if (tripId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: tripId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: tripId');
     }
     if (type == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: type');
+      throw ApiException(HttpStatus.badRequest, 'Missing required param: type');
     }
 
     final path = r'/api/trips/proof-of-delivery';
@@ -698,13 +714,12 @@ class TripsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['multipart/form-data'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (tripId != null) {
@@ -789,8 +804,19 @@ class TripsApi {
   /// * [String] createdBy:
   ///
   /// * [num] createdAt:
-  Future<TripProofOfDeliveryModel> uploadProofOfDelivery(String tripId, String type, { String recipientName, String photoUrl, MultipartFile photofile, String createdBy, num createdAt }) async {
-    final response = await uploadProofOfDeliveryWithHttpInfo(tripId, type,  recipientName: recipientName, photoUrl: photoUrl, photofile: photofile, createdBy: createdBy, createdAt: createdAt );
+  Future<TripProofOfDeliveryModel> uploadProofOfDelivery(
+      String tripId, String type,
+      {String recipientName,
+      String photoUrl,
+      MultipartFile photofile,
+      String createdBy,
+      num createdAt}) async {
+    final response = await uploadProofOfDeliveryWithHttpInfo(tripId, type,
+        recipientName: recipientName,
+        photoUrl: photoUrl,
+        photofile: photofile,
+        createdBy: createdBy,
+        createdAt: createdAt);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -798,8 +824,10 @@ class TripsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'TripProofOfDeliveryModel') as TripProofOfDeliveryModel;
-        }
+      return apiClient.deserialize(
+              _decodeBodyBytes(response), 'TripProofOfDeliveryModel')
+          as TripProofOfDeliveryModel;
+    }
     return Future<TripProofOfDeliveryModel>.value(null);
   }
 }

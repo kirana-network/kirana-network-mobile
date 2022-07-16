@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fleetonroute.mobile">
+    package="network.kirana.mobile">
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -10,7 +10,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
    <application
         android:label="network.kirana.mobile.Application"
-        android:name="@string/app_name"
+        android:name="KiranaNetwork"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name="io.flutter.embedding.android.FlutterActivity"

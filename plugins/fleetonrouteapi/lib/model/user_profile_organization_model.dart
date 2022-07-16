@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -27,25 +27,28 @@ class UserProfileOrganizationModel {
   Map extra;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is UserProfileOrganizationModel &&
-     other.organizationId == organizationId &&
-     other.role == role &&
-     other.status == status &&
-     other.extra == extra;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UserProfileOrganizationModel &&
+          other.organizationId == organizationId &&
+          other.role == role &&
+          other.status == status &&
+          other.extra == extra;
 
   @override
   int get hashCode =>
-    (organizationId == null ? 0 : organizationId.hashCode) +
-    (role == null ? 0 : role.hashCode) +
-    (status == null ? 0 : status.hashCode) +
-    (extra == null ? 0 : extra.hashCode);
+      (organizationId == null ? 0 : organizationId.hashCode) +
+      (role == null ? 0 : role.hashCode) +
+      (status == null ? 0 : status.hashCode) +
+      (extra == null ? 0 : extra.hashCode);
 
   @override
-  String toString() => 'UserProfileOrganizationModel[organizationId=$organizationId, role=$role, status=$status, extra=$extra]';
+  String toString() =>
+      'UserProfileOrganizationModel[organizationId=$organizationId, role=$role, status=$status, extra=$extra]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'organizationId'] = organizationId;
+    json[r'organizationId'] = organizationId;
     if (role != null) {
       json[r'role'] = role;
     }
@@ -60,40 +63,57 @@ class UserProfileOrganizationModel {
 
   /// Returns a new [UserProfileOrganizationModel] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static UserProfileOrganizationModel fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : UserProfileOrganizationModel(
-        organizationId: json[r'organizationId'],
-        role: UserProfileOrganizationModelRoleEnum.fromJson(json[r'role']),
-        status: UserProfileOrganizationModelStatusEnum.fromJson(json[r'status']),
-        extra: json[r'extra'],
-    );
+  static UserProfileOrganizationModel fromJson(Map<String, dynamic> json) =>
+      json == null
+          ? null
+          : UserProfileOrganizationModel(
+              organizationId: json[r'organizationId'],
+              role:
+                  UserProfileOrganizationModelRoleEnum.fromJson(json[r'role']),
+              status: UserProfileOrganizationModelStatusEnum.fromJson(
+                  json[r'status']),
+              extra: json[r'extra'],
+            );
 
-  static List<UserProfileOrganizationModel> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <UserProfileOrganizationModel>[]
-      : json.map((v) => UserProfileOrganizationModel.fromJson(v)).toList(growable: true == growable);
+  static List<UserProfileOrganizationModel> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <UserProfileOrganizationModel>[]
+          : json
+              .map((v) => UserProfileOrganizationModel.fromJson(v))
+              .toList(growable: true == growable);
 
-  static Map<String, UserProfileOrganizationModel> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, UserProfileOrganizationModel> mapFromJson(
+      Map<String, dynamic> json) {
     final map = <String, UserProfileOrganizationModel>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = UserProfileOrganizationModel.fromJson(v));
+      json.forEach((String key, dynamic v) =>
+          map[key] = UserProfileOrganizationModel.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of UserProfileOrganizationModel-objects as value to a dart map
-  static Map<String, List<UserProfileOrganizationModel>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<UserProfileOrganizationModel>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<UserProfileOrganizationModel>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = UserProfileOrganizationModel.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = UserProfileOrganizationModel.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-
 
 class UserProfileOrganizationModelRoleEnum {
   /// Instantiate a new enum with the provided [value].
@@ -119,14 +139,21 @@ class UserProfileOrganizationModelRoleEnum {
   ];
 
   static UserProfileOrganizationModelRoleEnum fromJson(dynamic value) =>
-    UserProfileOrganizationModelRoleEnumTypeTransformer().decode(value);
+      UserProfileOrganizationModelRoleEnumTypeTransformer().decode(value);
 
-  static List<UserProfileOrganizationModelRoleEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <UserProfileOrganizationModelRoleEnum>[]
-      : json
-          .map((value) => UserProfileOrganizationModelRoleEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<UserProfileOrganizationModelRoleEnum> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <UserProfileOrganizationModelRoleEnum>[]
+          : json
+              .map((value) =>
+                  UserProfileOrganizationModelRoleEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [UserProfileOrganizationModelRoleEnum] to String,
@@ -134,7 +161,8 @@ class UserProfileOrganizationModelRoleEnum {
 class UserProfileOrganizationModelRoleEnumTypeTransformer {
   const UserProfileOrganizationModelRoleEnumTypeTransformer._();
 
-  factory UserProfileOrganizationModelRoleEnumTypeTransformer() => _instance ??= UserProfileOrganizationModelRoleEnumTypeTransformer._();
+  factory UserProfileOrganizationModelRoleEnumTypeTransformer() =>
+      _instance ??= UserProfileOrganizationModelRoleEnumTypeTransformer._();
 
   String encode(UserProfileOrganizationModelRoleEnum data) => data.value;
 
@@ -148,9 +176,12 @@ class UserProfileOrganizationModelRoleEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   UserProfileOrganizationModelRoleEnum decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case r'ADMIN': return UserProfileOrganizationModelRoleEnum.ADMIN;
-      case r'DRIVER': return UserProfileOrganizationModelRoleEnum.DRIVER;
-      case r'ASSOCIATE': return UserProfileOrganizationModelRoleEnum.ASSOCIATE;
+      case r'ADMIN':
+        return UserProfileOrganizationModelRoleEnum.ADMIN;
+      case r'DRIVER':
+        return UserProfileOrganizationModelRoleEnum.DRIVER;
+      case r'ASSOCIATE':
+        return UserProfileOrganizationModelRoleEnum.ASSOCIATE;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -162,7 +193,6 @@ class UserProfileOrganizationModelRoleEnumTypeTransformer {
   /// Singleton [UserProfileOrganizationModelRoleEnumTypeTransformer] instance.
   static UserProfileOrganizationModelRoleEnumTypeTransformer _instance;
 }
-
 
 class UserProfileOrganizationModelStatusEnum {
   /// Instantiate a new enum with the provided [value].
@@ -176,7 +206,8 @@ class UserProfileOrganizationModelStatusEnum {
 
   String toJson() => value;
 
-  static const UNVERIFIED = UserProfileOrganizationModelStatusEnum._(r'UNVERIFIED');
+  static const UNVERIFIED =
+      UserProfileOrganizationModelStatusEnum._(r'UNVERIFIED');
   static const PENDING = UserProfileOrganizationModelStatusEnum._(r'PENDING');
   static const ACTIVE = UserProfileOrganizationModelStatusEnum._(r'ACTIVE');
   static const DISABLED = UserProfileOrganizationModelStatusEnum._(r'DISABLED');
@@ -192,14 +223,21 @@ class UserProfileOrganizationModelStatusEnum {
   ];
 
   static UserProfileOrganizationModelStatusEnum fromJson(dynamic value) =>
-    UserProfileOrganizationModelStatusEnumTypeTransformer().decode(value);
+      UserProfileOrganizationModelStatusEnumTypeTransformer().decode(value);
 
-  static List<UserProfileOrganizationModelStatusEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <UserProfileOrganizationModelStatusEnum>[]
-      : json
-          .map((value) => UserProfileOrganizationModelStatusEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<UserProfileOrganizationModelStatusEnum> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <UserProfileOrganizationModelStatusEnum>[]
+          : json
+              .map((value) =>
+                  UserProfileOrganizationModelStatusEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [UserProfileOrganizationModelStatusEnum] to String,
@@ -207,7 +245,8 @@ class UserProfileOrganizationModelStatusEnum {
 class UserProfileOrganizationModelStatusEnumTypeTransformer {
   const UserProfileOrganizationModelStatusEnumTypeTransformer._();
 
-  factory UserProfileOrganizationModelStatusEnumTypeTransformer() => _instance ??= UserProfileOrganizationModelStatusEnumTypeTransformer._();
+  factory UserProfileOrganizationModelStatusEnumTypeTransformer() =>
+      _instance ??= UserProfileOrganizationModelStatusEnumTypeTransformer._();
 
   String encode(UserProfileOrganizationModelStatusEnum data) => data.value;
 
@@ -219,13 +258,19 @@ class UserProfileOrganizationModelStatusEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  UserProfileOrganizationModelStatusEnum decode(dynamic data, {bool allowNull}) {
+  UserProfileOrganizationModelStatusEnum decode(dynamic data,
+      {bool allowNull}) {
     switch (data) {
-      case r'UNVERIFIED': return UserProfileOrganizationModelStatusEnum.UNVERIFIED;
-      case r'PENDING': return UserProfileOrganizationModelStatusEnum.PENDING;
-      case r'ACTIVE': return UserProfileOrganizationModelStatusEnum.ACTIVE;
-      case r'DISABLED': return UserProfileOrganizationModelStatusEnum.DISABLED;
-      case r'DELETED': return UserProfileOrganizationModelStatusEnum.DELETED;
+      case r'UNVERIFIED':
+        return UserProfileOrganizationModelStatusEnum.UNVERIFIED;
+      case r'PENDING':
+        return UserProfileOrganizationModelStatusEnum.PENDING;
+      case r'ACTIVE':
+        return UserProfileOrganizationModelStatusEnum.ACTIVE;
+      case r'DISABLED':
+        return UserProfileOrganizationModelStatusEnum.DISABLED;
+      case r'DELETED':
+        return UserProfileOrganizationModelStatusEnum.DELETED;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -237,4 +282,3 @@ class UserProfileOrganizationModelStatusEnumTypeTransformer {
   /// Singleton [UserProfileOrganizationModelStatusEnumTypeTransformer] instance.
   static UserProfileOrganizationModelStatusEnumTypeTransformer _instance;
 }
-

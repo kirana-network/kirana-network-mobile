@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -9,7 +9,6 @@
 
 import 'package:fleetonrouteapi/api.dart';
 import 'package:test/test.dart';
-
 
 /// tests for ClientsApi
 void main() {
@@ -24,6 +23,5 @@ void main() {
     test('test listClients', () async {
       // TODO
     });
-
   });
 }

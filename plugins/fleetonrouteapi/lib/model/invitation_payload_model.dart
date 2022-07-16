@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -21,21 +21,23 @@ class InvitationPayloadModel {
   Map extra;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is InvitationPayloadModel &&
-     other.status == status &&
-     other.extra == extra;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is InvitationPayloadModel &&
+          other.status == status &&
+          other.extra == extra;
 
   @override
   int get hashCode =>
-    (status == null ? 0 : status.hashCode) +
-    (extra == null ? 0 : extra.hashCode);
+      (status == null ? 0 : status.hashCode) +
+      (extra == null ? 0 : extra.hashCode);
 
   @override
   String toString() => 'InvitationPayloadModel[status=$status, extra=$extra]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'status'] = status;
+    json[r'status'] = status;
     if (extra != null) {
       json[r'extra'] = extra;
     }
@@ -44,38 +46,54 @@ class InvitationPayloadModel {
 
   /// Returns a new [InvitationPayloadModel] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static InvitationPayloadModel fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : InvitationPayloadModel(
-        status: InvitationPayloadModelStatusEnum.fromJson(json[r'status']),
-        extra: json[r'extra'],
-    );
+  static InvitationPayloadModel fromJson(Map<String, dynamic> json) =>
+      json == null
+          ? null
+          : InvitationPayloadModel(
+              status:
+                  InvitationPayloadModelStatusEnum.fromJson(json[r'status']),
+              extra: json[r'extra'],
+            );
 
-  static List<InvitationPayloadModel> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <InvitationPayloadModel>[]
-      : json.map((v) => InvitationPayloadModel.fromJson(v)).toList(growable: true == growable);
+  static List<InvitationPayloadModel> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <InvitationPayloadModel>[]
+          : json
+              .map((v) => InvitationPayloadModel.fromJson(v))
+              .toList(growable: true == growable);
 
-  static Map<String, InvitationPayloadModel> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, InvitationPayloadModel> mapFromJson(
+      Map<String, dynamic> json) {
     final map = <String, InvitationPayloadModel>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = InvitationPayloadModel.fromJson(v));
+      json.forEach((String key, dynamic v) =>
+          map[key] = InvitationPayloadModel.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of InvitationPayloadModel-objects as value to a dart map
-  static Map<String, List<InvitationPayloadModel>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<InvitationPayloadModel>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<InvitationPayloadModel>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = InvitationPayloadModel.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = InvitationPayloadModel.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-
 
 class InvitationPayloadModelStatusEnum {
   /// Instantiate a new enum with the provided [value].
@@ -101,14 +119,20 @@ class InvitationPayloadModelStatusEnum {
   ];
 
   static InvitationPayloadModelStatusEnum fromJson(dynamic value) =>
-    InvitationPayloadModelStatusEnumTypeTransformer().decode(value);
+      InvitationPayloadModelStatusEnumTypeTransformer().decode(value);
 
-  static List<InvitationPayloadModelStatusEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <InvitationPayloadModelStatusEnum>[]
-      : json
-          .map((value) => InvitationPayloadModelStatusEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<InvitationPayloadModelStatusEnum> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <InvitationPayloadModelStatusEnum>[]
+          : json
+              .map((value) => InvitationPayloadModelStatusEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [InvitationPayloadModelStatusEnum] to String,
@@ -116,7 +140,8 @@ class InvitationPayloadModelStatusEnum {
 class InvitationPayloadModelStatusEnumTypeTransformer {
   const InvitationPayloadModelStatusEnumTypeTransformer._();
 
-  factory InvitationPayloadModelStatusEnumTypeTransformer() => _instance ??= InvitationPayloadModelStatusEnumTypeTransformer._();
+  factory InvitationPayloadModelStatusEnumTypeTransformer() =>
+      _instance ??= InvitationPayloadModelStatusEnumTypeTransformer._();
 
   String encode(InvitationPayloadModelStatusEnum data) => data.value;
 
@@ -130,9 +155,12 @@ class InvitationPayloadModelStatusEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   InvitationPayloadModelStatusEnum decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case r'PENDING': return InvitationPayloadModelStatusEnum.PENDING;
-      case r'ACCEPTED': return InvitationPayloadModelStatusEnum.ACCEPTED;
-      case r'DECLINED': return InvitationPayloadModelStatusEnum.DECLINED;
+      case r'PENDING':
+        return InvitationPayloadModelStatusEnum.PENDING;
+      case r'ACCEPTED':
+        return InvitationPayloadModelStatusEnum.ACCEPTED;
+      case r'DECLINED':
+        return InvitationPayloadModelStatusEnum.DECLINED;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -144,4 +172,3 @@ class InvitationPayloadModelStatusEnumTypeTransformer {
   /// Singleton [InvitationPayloadModelStatusEnumTypeTransformer] instance.
   static InvitationPayloadModelStatusEnumTypeTransformer _instance;
 }
-

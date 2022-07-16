@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -9,9 +9,9 @@
 
 part of fleetonrouteapi;
 
-
 class UserprofilesApi {
-  UserprofilesApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  UserprofilesApi([ApiClient apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -22,10 +22,12 @@ class UserprofilesApi {
   /// Parameters:
   ///
   /// * [UserProfileModel] userProfileModel (required):
-  Future<Response> createUserProfileWithHttpInfo(UserProfileModel userProfileModel) async {
+  Future<Response> createUserProfileWithHttpInfo(
+      UserProfileModel userProfileModel) async {
     // Verify required params are set.
     if (userProfileModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileModel');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileModel');
     }
 
     final path = r'/api/userprofiles';
@@ -37,20 +39,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -69,7 +69,8 @@ class UserprofilesApi {
   /// Parameters:
   ///
   /// * [UserProfileModel] userProfileModel (required):
-  Future<UserProfileModel> createUserProfile(UserProfileModel userProfileModel) async {
+  Future<UserProfileModel> createUserProfile(
+      UserProfileModel userProfileModel) async {
     final response = await createUserProfileWithHttpInfo(userProfileModel);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -78,8 +79,9 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'UserProfileModel') as UserProfileModel;
-        }
+      return apiClient.deserialize(
+          _decodeBodyBytes(response), 'UserProfileModel') as UserProfileModel;
+    }
     return Future<UserProfileModel>.value(null);
   }
 
@@ -92,18 +94,23 @@ class UserprofilesApi {
   /// * [String] customerProfileId (required):
   ///
   /// * [String] userProfileId (required):
-  Future<Response> deleteCustomerProfileWithHttpInfo(String customerProfileId, String userProfileId) async {
+  Future<Response> deleteCustomerProfileWithHttpInfo(
+      String customerProfileId, String userProfileId) async {
     // Verify required params are set.
     if (customerProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: customerProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: customerProfileId');
     }
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
 
-    final path = r'/api/userprofiles/{userProfileId}/customer-profiles/{customerProfileId}'
-      .replaceAll('{' + 'customerProfileId' + '}', customerProfileId.toString())
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+    final path =
+        r'/api/userprofiles/{userProfileId}/customer-profiles/{customerProfileId}'
+            .replaceAll(
+                '{' + 'customerProfileId' + '}', customerProfileId.toString())
+            .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody;
 
@@ -112,20 +119,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -146,8 +151,10 @@ class UserprofilesApi {
   /// * [String] customerProfileId (required):
   ///
   /// * [String] userProfileId (required):
-  Future<Map> deleteCustomerProfile(String customerProfileId, String userProfileId) async {
-    final response = await deleteCustomerProfileWithHttpInfo(customerProfileId, userProfileId);
+  Future<Map> deleteCustomerProfile(
+      String customerProfileId, String userProfileId) async {
+    final response = await deleteCustomerProfileWithHttpInfo(
+        customerProfileId, userProfileId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -156,7 +163,7 @@ class UserprofilesApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'Map') as Map;
-        }
+    }
     return Future<Map>.value(null);
   }
 
@@ -169,18 +176,22 @@ class UserprofilesApi {
   /// * [String] organizationId (required):
   ///
   /// * [String] userProfileId (required):
-  Future<Response> deleteInvitationWithHttpInfo(String organizationId, String userProfileId) async {
+  Future<Response> deleteInvitationWithHttpInfo(
+      String organizationId, String userProfileId) async {
     // Verify required params are set.
     if (organizationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: organizationId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: organizationId');
     }
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
 
-    final path = r'/api/userprofiles/{userProfileId}/invitations/{organizationId}'
-      .replaceAll('{' + 'organizationId' + '}', organizationId.toString())
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+    final path =
+        r'/api/userprofiles/{userProfileId}/invitations/{organizationId}'
+            .replaceAll('{' + 'organizationId' + '}', organizationId.toString())
+            .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody;
 
@@ -189,20 +200,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -223,8 +232,10 @@ class UserprofilesApi {
   /// * [String] organizationId (required):
   ///
   /// * [String] userProfileId (required):
-  Future<Map> deleteInvitation(String organizationId, String userProfileId) async {
-    final response = await deleteInvitationWithHttpInfo(organizationId, userProfileId);
+  Future<Map> deleteInvitation(
+      String organizationId, String userProfileId) async {
+    final response =
+        await deleteInvitationWithHttpInfo(organizationId, userProfileId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -233,7 +244,7 @@ class UserprofilesApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'Map') as Map;
-        }
+    }
     return Future<Map>.value(null);
   }
 
@@ -247,11 +258,12 @@ class UserprofilesApi {
   Future<Response> deleteUserProfileWithHttpInfo(String userProfileId) async {
     // Verify required params are set.
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
 
     final path = r'/api/userprofiles/{userProfileId}'
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+        .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody;
 
@@ -260,20 +272,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -302,7 +312,7 @@ class UserprofilesApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'bool') as bool;
-        }
+    }
     return Future<bool>.value(null);
   }
 
@@ -315,14 +325,16 @@ class UserprofilesApi {
   /// * [String] userProfileId (required):
   ///
   /// * [String] sort:
-  Future<Response> listApiKeysWithHttpInfo(String userProfileId, { String sort }) async {
+  Future<Response> listApiKeysWithHttpInfo(String userProfileId,
+      {String sort}) async {
     // Verify required params are set.
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
 
     final path = r'/api/userprofiles/{userProfileId}/api-keys'
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+        .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody;
 
@@ -331,24 +343,23 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     if (sort != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'sort', sort));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'sort', sort));
     }
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -369,8 +380,9 @@ class UserprofilesApi {
   /// * [String] userProfileId (required):
   ///
   /// * [String] sort:
-  Future<ListOfApiKeysModel> listApiKeys(String userProfileId, { String sort }) async {
-    final response = await listApiKeysWithHttpInfo(userProfileId,  sort: sort );
+  Future<ListOfApiKeysModel> listApiKeys(String userProfileId,
+      {String sort}) async {
+    final response = await listApiKeysWithHttpInfo(userProfileId, sort: sort);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -378,8 +390,10 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ListOfApiKeysModel') as ListOfApiKeysModel;
-        }
+      return apiClient.deserialize(
+              _decodeBodyBytes(response), 'ListOfApiKeysModel')
+          as ListOfApiKeysModel;
+    }
     return Future<ListOfApiKeysModel>.value(null);
   }
 
@@ -390,14 +404,16 @@ class UserprofilesApi {
   /// Parameters:
   ///
   /// * [String] userProfileId (required):
-  Future<Response> listCustomerProfilesWithHttpInfo(String userProfileId) async {
+  Future<Response> listCustomerProfilesWithHttpInfo(
+      String userProfileId) async {
     // Verify required params are set.
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
 
     final path = r'/api/userprofiles/{userProfileId}/customer-profiles'
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+        .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody;
 
@@ -406,20 +422,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -438,7 +452,8 @@ class UserprofilesApi {
   /// Parameters:
   ///
   /// * [String] userProfileId (required):
-  Future<ListOfCustomerProfilesModel> listCustomerProfiles(String userProfileId) async {
+  Future<ListOfCustomerProfilesModel> listCustomerProfiles(
+      String userProfileId) async {
     final response = await listCustomerProfilesWithHttpInfo(userProfileId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -447,8 +462,10 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ListOfCustomerProfilesModel') as ListOfCustomerProfilesModel;
-        }
+      return apiClient.deserialize(
+              _decodeBodyBytes(response), 'ListOfCustomerProfilesModel')
+          as ListOfCustomerProfilesModel;
+    }
     return Future<ListOfCustomerProfilesModel>.value(null);
   }
 
@@ -462,11 +479,12 @@ class UserprofilesApi {
   Future<Response> listInvitationsWithHttpInfo(String userProfileId) async {
     // Verify required params are set.
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
 
     final path = r'/api/userprofiles/{userProfileId}/invitations'
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+        .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody;
 
@@ -475,20 +493,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -516,9 +532,10 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<InvitationModel>') as List)
-        .cast<InvitationModel>()
-        .toList(growable: false);
+      return (apiClient.deserialize(
+              _decodeBodyBytes(response), 'List<InvitationModel>') as List)
+          .cast<InvitationModel>()
+          .toList(growable: false);
     }
     return Future<List<InvitationModel>>.value(null);
   }
@@ -538,14 +555,19 @@ class UserprofilesApi {
   /// * [String] endDate:
   ///
   /// * [String] startDate:
-  Future<Response> listTripsWithHttpInfo(String userProfileId, { String tripType, String tripStatus, String endDate, String startDate }) async {
+  Future<Response> listTripsWithHttpInfo(String userProfileId,
+      {String tripType,
+      String tripStatus,
+      String endDate,
+      String startDate}) async {
     // Verify required params are set.
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
 
     final path = r'/api/userprofiles/{userProfileId}/trips'
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+        .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody;
 
@@ -554,33 +576,35 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     if (tripType != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'tripType', tripType));
+      queryParams.addAll(
+          _convertParametersForCollectionFormat('', 'tripType', tripType));
     }
     if (tripStatus != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'tripStatus', tripStatus));
+      queryParams.addAll(
+          _convertParametersForCollectionFormat('', 'tripStatus', tripStatus));
     }
     if (endDate != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'endDate', endDate));
+      queryParams.addAll(
+          _convertParametersForCollectionFormat('', 'endDate', endDate));
     }
     if (startDate != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'startDate', startDate));
+      queryParams.addAll(
+          _convertParametersForCollectionFormat('', 'startDate', startDate));
     }
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -607,8 +631,16 @@ class UserprofilesApi {
   /// * [String] endDate:
   ///
   /// * [String] startDate:
-  Future<ListOfTripsModel> listTrips(String userProfileId, { String tripType, String tripStatus, String endDate, String startDate }) async {
-    final response = await listTripsWithHttpInfo(userProfileId,  tripType: tripType, tripStatus: tripStatus, endDate: endDate, startDate: startDate );
+  Future<ListOfTripsModel> listTrips(String userProfileId,
+      {String tripType,
+      String tripStatus,
+      String endDate,
+      String startDate}) async {
+    final response = await listTripsWithHttpInfo(userProfileId,
+        tripType: tripType,
+        tripStatus: tripStatus,
+        endDate: endDate,
+        startDate: startDate);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -616,8 +648,9 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ListOfTripsModel') as ListOfTripsModel;
-        }
+      return apiClient.deserialize(
+          _decodeBodyBytes(response), 'ListOfTripsModel') as ListOfTripsModel;
+    }
     return Future<ListOfTripsModel>.value(null);
   }
 
@@ -628,14 +661,16 @@ class UserprofilesApi {
   /// Parameters:
   ///
   /// * [String] userProfileId (required):
-  Future<Response> listUserProfileOrganizationsWithHttpInfo(String userProfileId) async {
+  Future<Response> listUserProfileOrganizationsWithHttpInfo(
+      String userProfileId) async {
     // Verify required params are set.
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
 
     final path = r'/api/userprofiles/{userProfileId}/organizations'
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+        .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody;
 
@@ -644,20 +679,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -676,8 +709,10 @@ class UserprofilesApi {
   /// Parameters:
   ///
   /// * [String] userProfileId (required):
-  Future<List<UserProfileOrganizationModel>> listUserProfileOrganizations(String userProfileId) async {
-    final response = await listUserProfileOrganizationsWithHttpInfo(userProfileId);
+  Future<List<UserProfileOrganizationModel>> listUserProfileOrganizations(
+      String userProfileId) async {
+    final response =
+        await listUserProfileOrganizationsWithHttpInfo(userProfileId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -685,9 +720,10 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<UserProfileOrganizationModel>') as List)
-        .cast<UserProfileOrganizationModel>()
-        .toList(growable: false);
+      return (apiClient.deserialize(_decodeBodyBytes(response),
+              'List<UserProfileOrganizationModel>') as List)
+          .cast<UserProfileOrganizationModel>()
+          .toList(growable: false);
     }
     return Future<List<UserProfileOrganizationModel>>.value(null);
   }
@@ -705,10 +741,12 @@ class UserprofilesApi {
   /// * [String] range:
   ///
   /// * [String] sort:
-  Future<Response> listUserProfilesWithHttpInfo(String filter, { String range, String sort }) async {
+  Future<Response> listUserProfilesWithHttpInfo(String filter,
+      {String range, String sort}) async {
     // Verify required params are set.
     if (filter == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: filter');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: filter');
     }
 
     final path = r'/api/userprofiles';
@@ -719,29 +757,30 @@ class UserprofilesApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'filter', filter));
+    queryParams
+        .addAll(_convertParametersForCollectionFormat('', 'filter', filter));
     if (range != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'range', range));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'range', range));
     }
     if (sort != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat('', 'sort', sort));
+      queryParams
+          .addAll(_convertParametersForCollectionFormat('', 'sort', sort));
     }
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -766,8 +805,10 @@ class UserprofilesApi {
   /// * [String] range:
   ///
   /// * [String] sort:
-  Future<ListOfUserProfilesModel> listUserProfiles(String filter, { String range, String sort }) async {
-    final response = await listUserProfilesWithHttpInfo(filter,  range: range, sort: sort );
+  Future<ListOfUserProfilesModel> listUserProfiles(String filter,
+      {String range, String sort}) async {
+    final response =
+        await listUserProfilesWithHttpInfo(filter, range: range, sort: sort);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -775,8 +816,10 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ListOfUserProfilesModel') as ListOfUserProfilesModel;
-        }
+      return apiClient.deserialize(
+              _decodeBodyBytes(response), 'ListOfUserProfilesModel')
+          as ListOfUserProfilesModel;
+    }
     return Future<ListOfUserProfilesModel>.value(null);
   }
 
@@ -789,18 +832,22 @@ class UserprofilesApi {
   /// * [String] organizationId (required):
   ///
   /// * [String] userProfileId (required):
-  Future<Response> retrieveInvitationWithHttpInfo(String organizationId, String userProfileId) async {
+  Future<Response> retrieveInvitationWithHttpInfo(
+      String organizationId, String userProfileId) async {
     // Verify required params are set.
     if (organizationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: organizationId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: organizationId');
     }
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
 
-    final path = r'/api/userprofiles/{userProfileId}/invitations/{organizationId}'
-      .replaceAll('{' + 'organizationId' + '}', organizationId.toString())
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+    final path =
+        r'/api/userprofiles/{userProfileId}/invitations/{organizationId}'
+            .replaceAll('{' + 'organizationId' + '}', organizationId.toString())
+            .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody;
 
@@ -809,20 +856,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -843,8 +888,10 @@ class UserprofilesApi {
   /// * [String] organizationId (required):
   ///
   /// * [String] userProfileId (required):
-  Future<InvitationModel> retrieveInvitation(String organizationId, String userProfileId) async {
-    final response = await retrieveInvitationWithHttpInfo(organizationId, userProfileId);
+  Future<InvitationModel> retrieveInvitation(
+      String organizationId, String userProfileId) async {
+    final response =
+        await retrieveInvitationWithHttpInfo(organizationId, userProfileId);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -852,8 +899,9 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InvitationModel') as InvitationModel;
-        }
+      return apiClient.deserialize(
+          _decodeBodyBytes(response), 'InvitationModel') as InvitationModel;
+    }
     return Future<InvitationModel>.value(null);
   }
 
@@ -867,11 +915,12 @@ class UserprofilesApi {
   Future<Response> retrieveUserProfileWithHttpInfo(String userProfileId) async {
     // Verify required params are set.
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
 
     final path = r'/api/userprofiles/{userProfileId}'
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+        .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody;
 
@@ -880,20 +929,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -921,8 +968,9 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'UserProfileModel') as UserProfileModel;
-        }
+      return apiClient.deserialize(
+          _decodeBodyBytes(response), 'UserProfileModel') as UserProfileModel;
+    }
     return Future<UserProfileModel>.value(null);
   }
 
@@ -935,17 +983,20 @@ class UserprofilesApi {
   /// * [String] userProfileId (required):
   ///
   /// * [SetupCustomerProfileRequestModel] setupCustomerProfileRequestModel (required):
-  Future<Response> setupCustomerProfileWithHttpInfo(String userProfileId, SetupCustomerProfileRequestModel setupCustomerProfileRequestModel) async {
+  Future<Response> setupCustomerProfileWithHttpInfo(String userProfileId,
+      SetupCustomerProfileRequestModel setupCustomerProfileRequestModel) async {
     // Verify required params are set.
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
     if (setupCustomerProfileRequestModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: setupCustomerProfileRequestModel');
+      throw ApiException(HttpStatus.badRequest,
+          'Missing required param: setupCustomerProfileRequestModel');
     }
 
     final path = r'/api/userprofiles/{userProfileId}/customer-profiles'
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+        .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody = setupCustomerProfileRequestModel;
 
@@ -954,20 +1005,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -988,8 +1037,11 @@ class UserprofilesApi {
   /// * [String] userProfileId (required):
   ///
   /// * [SetupCustomerProfileRequestModel] setupCustomerProfileRequestModel (required):
-  Future<SetupCustomerProfileResponseModel> setupCustomerProfile(String userProfileId, SetupCustomerProfileRequestModel setupCustomerProfileRequestModel) async {
-    final response = await setupCustomerProfileWithHttpInfo(userProfileId, setupCustomerProfileRequestModel);
+  Future<SetupCustomerProfileResponseModel> setupCustomerProfile(
+      String userProfileId,
+      SetupCustomerProfileRequestModel setupCustomerProfileRequestModel) async {
+    final response = await setupCustomerProfileWithHttpInfo(
+        userProfileId, setupCustomerProfileRequestModel);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -997,8 +1049,10 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'SetupCustomerProfileResponseModel') as SetupCustomerProfileResponseModel;
-        }
+      return apiClient.deserialize(
+              _decodeBodyBytes(response), 'SetupCustomerProfileResponseModel')
+          as SetupCustomerProfileResponseModel;
+    }
     return Future<SetupCustomerProfileResponseModel>.value(null);
   }
 
@@ -1013,21 +1067,28 @@ class UserprofilesApi {
   /// * [String] userProfileId (required):
   ///
   /// * [InvitationPayloadModel] invitationPayloadModel (required):
-  Future<Response> updateInvitationWithHttpInfo(String organizationId, String userProfileId, InvitationPayloadModel invitationPayloadModel) async {
+  Future<Response> updateInvitationWithHttpInfo(
+      String organizationId,
+      String userProfileId,
+      InvitationPayloadModel invitationPayloadModel) async {
     // Verify required params are set.
     if (organizationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: organizationId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: organizationId');
     }
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
     if (invitationPayloadModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: invitationPayloadModel');
+      throw ApiException(HttpStatus.badRequest,
+          'Missing required param: invitationPayloadModel');
     }
 
-    final path = r'/api/userprofiles/{userProfileId}/invitations/{organizationId}'
-      .replaceAll('{' + 'organizationId' + '}', organizationId.toString())
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+    final path =
+        r'/api/userprofiles/{userProfileId}/invitations/{organizationId}'
+            .replaceAll('{' + 'organizationId' + '}', organizationId.toString())
+            .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody = invitationPayloadModel;
 
@@ -1036,20 +1097,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -1072,8 +1131,12 @@ class UserprofilesApi {
   /// * [String] userProfileId (required):
   ///
   /// * [InvitationPayloadModel] invitationPayloadModel (required):
-  Future<InvitationModel> updateInvitation(String organizationId, String userProfileId, InvitationPayloadModel invitationPayloadModel) async {
-    final response = await updateInvitationWithHttpInfo(organizationId, userProfileId, invitationPayloadModel);
+  Future<InvitationModel> updateInvitation(
+      String organizationId,
+      String userProfileId,
+      InvitationPayloadModel invitationPayloadModel) async {
+    final response = await updateInvitationWithHttpInfo(
+        organizationId, userProfileId, invitationPayloadModel);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -1081,8 +1144,9 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InvitationModel') as InvitationModel;
-        }
+      return apiClient.deserialize(
+          _decodeBodyBytes(response), 'InvitationModel') as InvitationModel;
+    }
     return Future<InvitationModel>.value(null);
   }
 
@@ -1095,17 +1159,20 @@ class UserprofilesApi {
   /// * [String] userProfileId (required):
   ///
   /// * [UserProfileModel] userProfileModel (required):
-  Future<Response> updateUserProfileWithHttpInfo(String userProfileId, UserProfileModel userProfileModel) async {
+  Future<Response> updateUserProfileWithHttpInfo(
+      String userProfileId, UserProfileModel userProfileModel) async {
     // Verify required params are set.
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
     if (userProfileModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileModel');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileModel');
     }
 
     final path = r'/api/userprofiles/{userProfileId}'
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+        .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody = userProfileModel;
 
@@ -1114,20 +1181,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -1148,8 +1213,10 @@ class UserprofilesApi {
   /// * [String] userProfileId (required):
   ///
   /// * [UserProfileModel] userProfileModel (required):
-  Future<UserProfileModel> updateUserProfile(String userProfileId, UserProfileModel userProfileModel) async {
-    final response = await updateUserProfileWithHttpInfo(userProfileId, userProfileModel);
+  Future<UserProfileModel> updateUserProfile(
+      String userProfileId, UserProfileModel userProfileModel) async {
+    final response =
+        await updateUserProfileWithHttpInfo(userProfileId, userProfileModel);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -1157,8 +1224,9 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'UserProfileModel') as UserProfileModel;
-        }
+      return apiClient.deserialize(
+          _decodeBodyBytes(response), 'UserProfileModel') as UserProfileModel;
+    }
     return Future<UserProfileModel>.value(null);
   }
 
@@ -1173,21 +1241,28 @@ class UserprofilesApi {
   /// * [String] userProfileId (required):
   ///
   /// * [UserProfileOrganizationModel] userProfileOrganizationModel (required):
-  Future<Response> updateUserProfileOrganizationWithHttpInfo(String organizationId, String userProfileId, UserProfileOrganizationModel userProfileOrganizationModel) async {
+  Future<Response> updateUserProfileOrganizationWithHttpInfo(
+      String organizationId,
+      String userProfileId,
+      UserProfileOrganizationModel userProfileOrganizationModel) async {
     // Verify required params are set.
     if (organizationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: organizationId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: organizationId');
     }
     if (userProfileId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: userProfileId');
     }
     if (userProfileOrganizationModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: userProfileOrganizationModel');
+      throw ApiException(HttpStatus.badRequest,
+          'Missing required param: userProfileOrganizationModel');
     }
 
-    final path = r'/api/userprofiles/{userProfileId}/organization/{organizationId}'
-      .replaceAll('{' + 'organizationId' + '}', organizationId.toString())
-      .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
+    final path =
+        r'/api/userprofiles/{userProfileId}/organization/{organizationId}'
+            .replaceAll('{' + 'organizationId' + '}', organizationId.toString())
+            .replaceAll('{' + 'userProfileId' + '}', userProfileId.toString());
 
     Object postBody = userProfileOrganizationModel;
 
@@ -1196,20 +1271,18 @@ class UserprofilesApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -1232,8 +1305,12 @@ class UserprofilesApi {
   /// * [String] userProfileId (required):
   ///
   /// * [UserProfileOrganizationModel] userProfileOrganizationModel (required):
-  Future<UserProfileOrganizationModel> updateUserProfileOrganization(String organizationId, String userProfileId, UserProfileOrganizationModel userProfileOrganizationModel) async {
-    final response = await updateUserProfileOrganizationWithHttpInfo(organizationId, userProfileId, userProfileOrganizationModel);
+  Future<UserProfileOrganizationModel> updateUserProfileOrganization(
+      String organizationId,
+      String userProfileId,
+      UserProfileOrganizationModel userProfileOrganizationModel) async {
+    final response = await updateUserProfileOrganizationWithHttpInfo(
+        organizationId, userProfileId, userProfileOrganizationModel);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -1241,8 +1318,10 @@ class UserprofilesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'UserProfileOrganizationModel') as UserProfileOrganizationModel;
-        }
+      return apiClient.deserialize(
+              _decodeBodyBytes(response), 'UserProfileOrganizationModel')
+          as UserProfileOrganizationModel;
+    }
     return Future<UserProfileOrganizationModel>.value(null);
   }
 }

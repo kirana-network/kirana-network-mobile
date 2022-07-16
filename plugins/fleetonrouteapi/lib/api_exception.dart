@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,8 @@ part of fleetonrouteapi;
 class ApiException implements Exception {
   ApiException(this.code, this.message);
 
-  ApiException.withInner(this.code, this.message, this.innerException, this.stackTrace);
+  ApiException.withInner(
+      this.code, this.message, this.innerException, this.stackTrace);
 
   int code = 0;
   String message;

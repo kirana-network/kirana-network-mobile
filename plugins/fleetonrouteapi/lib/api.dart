@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -87,7 +87,6 @@ part 'model/trip_proof_of_delivery_model.dart';
 part 'model/user_profile_model.dart';
 part 'model/user_profile_organization_model.dart';
 part 'model/user_profile_query_filter_model.dart';
-
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 const _dateEpochMarker = 'epoch';

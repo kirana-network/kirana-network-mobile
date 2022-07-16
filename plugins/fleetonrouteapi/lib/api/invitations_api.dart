@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -9,9 +9,9 @@
 
 part of fleetonrouteapi;
 
-
 class InvitationsApi {
-  InvitationsApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  InvitationsApi([ApiClient apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -22,10 +22,12 @@ class InvitationsApi {
   /// Parameters:
   ///
   /// * [CreateInvitationPayloadModel] createInvitationPayloadModel (required):
-  Future<Response> createInvitationWithHttpInfo(CreateInvitationPayloadModel createInvitationPayloadModel) async {
+  Future<Response> createInvitationWithHttpInfo(
+      CreateInvitationPayloadModel createInvitationPayloadModel) async {
     // Verify required params are set.
     if (createInvitationPayloadModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: createInvitationPayloadModel');
+      throw ApiException(HttpStatus.badRequest,
+          'Missing required param: createInvitationPayloadModel');
     }
 
     final path = r'/api/invitations';
@@ -37,20 +39,18 @@ class InvitationsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -69,8 +69,10 @@ class InvitationsApi {
   /// Parameters:
   ///
   /// * [CreateInvitationPayloadModel] createInvitationPayloadModel (required):
-  Future<InvitationModel> createInvitation(CreateInvitationPayloadModel createInvitationPayloadModel) async {
-    final response = await createInvitationWithHttpInfo(createInvitationPayloadModel);
+  Future<InvitationModel> createInvitation(
+      CreateInvitationPayloadModel createInvitationPayloadModel) async {
+    final response =
+        await createInvitationWithHttpInfo(createInvitationPayloadModel);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     }
@@ -78,8 +80,9 @@ class InvitationsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InvitationModel') as InvitationModel;
-        }
+      return apiClient.deserialize(
+          _decodeBodyBytes(response), 'InvitationModel') as InvitationModel;
+    }
     return Future<InvitationModel>.value(null);
   }
 
@@ -93,11 +96,12 @@ class InvitationsApi {
   Future<Response> listInvitationsWithHttpInfo(String organizationId) async {
     // Verify required params are set.
     if (organizationId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: organizationId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: organizationId');
     }
 
     final path = r'/api/organizations/{organizationId}/invitations'
-      .replaceAll('{' + 'organizationId' + '}', organizationId.toString());
+        .replaceAll('{' + 'organizationId' + '}', organizationId.toString());
 
     Object postBody;
 
@@ -106,20 +110,18 @@ class InvitationsApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['API_KEY', 'ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -147,8 +149,10 @@ class InvitationsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ListOfInvitationsModel') as ListOfInvitationsModel;
-        }
+      return apiClient.deserialize(
+              _decodeBodyBytes(response), 'ListOfInvitationsModel')
+          as ListOfInvitationsModel;
+    }
     return Future<ListOfInvitationsModel>.value(null);
   }
 }

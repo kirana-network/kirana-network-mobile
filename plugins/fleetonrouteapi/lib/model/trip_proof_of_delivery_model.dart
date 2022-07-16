@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -36,32 +36,35 @@ class TripProofOfDeliveryModel {
   num createdAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TripProofOfDeliveryModel &&
-     other.tripId == tripId &&
-     other.type == type &&
-     other.recipientName == recipientName &&
-     other.photoUrl == photoUrl &&
-     other.photofile == photofile &&
-     other.createdBy == createdBy &&
-     other.createdAt == createdAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TripProofOfDeliveryModel &&
+          other.tripId == tripId &&
+          other.type == type &&
+          other.recipientName == recipientName &&
+          other.photoUrl == photoUrl &&
+          other.photofile == photofile &&
+          other.createdBy == createdBy &&
+          other.createdAt == createdAt;
 
   @override
   int get hashCode =>
-    (tripId == null ? 0 : tripId.hashCode) +
-    (type == null ? 0 : type.hashCode) +
-    (recipientName == null ? 0 : recipientName.hashCode) +
-    (photoUrl == null ? 0 : photoUrl.hashCode) +
-    (photofile == null ? 0 : photofile.hashCode) +
-    (createdBy == null ? 0 : createdBy.hashCode) +
-    (createdAt == null ? 0 : createdAt.hashCode);
+      (tripId == null ? 0 : tripId.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (recipientName == null ? 0 : recipientName.hashCode) +
+      (photoUrl == null ? 0 : photoUrl.hashCode) +
+      (photofile == null ? 0 : photofile.hashCode) +
+      (createdBy == null ? 0 : createdBy.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode);
 
   @override
-  String toString() => 'TripProofOfDeliveryModel[tripId=$tripId, type=$type, recipientName=$recipientName, photoUrl=$photoUrl, photofile=$photofile, createdBy=$createdBy, createdAt=$createdAt]';
+  String toString() =>
+      'TripProofOfDeliveryModel[tripId=$tripId, type=$type, recipientName=$recipientName, photoUrl=$photoUrl, photofile=$photofile, createdBy=$createdBy, createdAt=$createdAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'tripId'] = tripId;
-      json[r'type'] = type;
+    json[r'tripId'] = tripId;
+    json[r'type'] = type;
     if (recipientName != null) {
       json[r'recipientName'] = recipientName;
     }
@@ -82,45 +85,59 @@ class TripProofOfDeliveryModel {
 
   /// Returns a new [TripProofOfDeliveryModel] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static TripProofOfDeliveryModel fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : TripProofOfDeliveryModel(
-        tripId: json[r'tripId'],
-        type: TripProofOfDeliveryModelTypeEnum.fromJson(json[r'type']),
-        recipientName: json[r'recipientName'],
-        photoUrl: json[r'photoUrl'],
-        photofile: null, // No support for decoding binary content from JSON
-        createdBy: json[r'createdBy'],
-        createdAt: json[r'createdAt'] == null ?
-          null :
-          json[r'createdAt'].toDouble(),
-    );
+  static TripProofOfDeliveryModel fromJson(Map<String, dynamic> json) => json ==
+          null
+      ? null
+      : TripProofOfDeliveryModel(
+          tripId: json[r'tripId'],
+          type: TripProofOfDeliveryModelTypeEnum.fromJson(json[r'type']),
+          recipientName: json[r'recipientName'],
+          photoUrl: json[r'photoUrl'],
+          photofile: null, // No support for decoding binary content from JSON
+          createdBy: json[r'createdBy'],
+          createdAt:
+              json[r'createdAt'] == null ? null : json[r'createdAt'].toDouble(),
+        );
 
-  static List<TripProofOfDeliveryModel> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <TripProofOfDeliveryModel>[]
-      : json.map((v) => TripProofOfDeliveryModel.fromJson(v)).toList(growable: true == growable);
+  static List<TripProofOfDeliveryModel> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <TripProofOfDeliveryModel>[]
+          : json
+              .map((v) => TripProofOfDeliveryModel.fromJson(v))
+              .toList(growable: true == growable);
 
-  static Map<String, TripProofOfDeliveryModel> mapFromJson(Map<String, dynamic> json) {
+  static Map<String, TripProofOfDeliveryModel> mapFromJson(
+      Map<String, dynamic> json) {
     final map = <String, TripProofOfDeliveryModel>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic v) => map[key] = TripProofOfDeliveryModel.fromJson(v));
+      json.forEach((String key, dynamic v) =>
+          map[key] = TripProofOfDeliveryModel.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of TripProofOfDeliveryModel-objects as value to a dart map
-  static Map<String, List<TripProofOfDeliveryModel>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+  static Map<String, List<TripProofOfDeliveryModel>> mapListFromJson(
+    Map<String, dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) {
     final map = <String, List<TripProofOfDeliveryModel>>{};
     if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic v) {
-        map[key] = TripProofOfDeliveryModel.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+        map[key] = TripProofOfDeliveryModel.listFromJson(v,
+            emptyIsNull: emptyIsNull, growable: growable);
       });
     }
     return map;
   }
 }
-
 
 class TripProofOfDeliveryModelTypeEnum {
   /// Instantiate a new enum with the provided [value].
@@ -144,14 +161,20 @@ class TripProofOfDeliveryModelTypeEnum {
   ];
 
   static TripProofOfDeliveryModelTypeEnum fromJson(dynamic value) =>
-    TripProofOfDeliveryModelTypeEnumTypeTransformer().decode(value);
+      TripProofOfDeliveryModelTypeEnumTypeTransformer().decode(value);
 
-  static List<TripProofOfDeliveryModelTypeEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <TripProofOfDeliveryModelTypeEnum>[]
-      : json
-          .map((value) => TripProofOfDeliveryModelTypeEnum.fromJson(value))
-          .toList(growable: true == growable);
+  static List<TripProofOfDeliveryModelTypeEnum> listFromJson(
+    List<dynamic> json, {
+    bool emptyIsNull,
+    bool growable,
+  }) =>
+      json == null || json.isEmpty
+          ? true == emptyIsNull
+              ? null
+              : <TripProofOfDeliveryModelTypeEnum>[]
+          : json
+              .map((value) => TripProofOfDeliveryModelTypeEnum.fromJson(value))
+              .toList(growable: true == growable);
 }
 
 /// Transformation class that can [encode] an instance of [TripProofOfDeliveryModelTypeEnum] to String,
@@ -159,7 +182,8 @@ class TripProofOfDeliveryModelTypeEnum {
 class TripProofOfDeliveryModelTypeEnumTypeTransformer {
   const TripProofOfDeliveryModelTypeEnumTypeTransformer._();
 
-  factory TripProofOfDeliveryModelTypeEnumTypeTransformer() => _instance ??= TripProofOfDeliveryModelTypeEnumTypeTransformer._();
+  factory TripProofOfDeliveryModelTypeEnumTypeTransformer() =>
+      _instance ??= TripProofOfDeliveryModelTypeEnumTypeTransformer._();
 
   String encode(TripProofOfDeliveryModelTypeEnum data) => data.value;
 
@@ -173,8 +197,10 @@ class TripProofOfDeliveryModelTypeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   TripProofOfDeliveryModelTypeEnum decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case r'NAME': return TripProofOfDeliveryModelTypeEnum.NAME;
-      case r'PHOTO': return TripProofOfDeliveryModelTypeEnum.PHOTO;
+      case r'NAME':
+        return TripProofOfDeliveryModelTypeEnum.NAME;
+      case r'PHOTO':
+        return TripProofOfDeliveryModelTypeEnum.PHOTO;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');
@@ -186,4 +212,3 @@ class TripProofOfDeliveryModelTypeEnumTypeTransformer {
   /// Singleton [TripProofOfDeliveryModelTypeEnumTypeTransformer] instance.
   static TripProofOfDeliveryModelTypeEnumTypeTransformer _instance;
 }
-

@@ -1,14 +1,13 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+// @ dart=2.8
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: lines_longer_than_80_chars
 
 part of fleetonrouteapi;
-
 
 class AuthApi {
   AuthApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
@@ -22,10 +21,12 @@ class AuthApi {
   /// Parameters:
   ///
   /// * [CreateApiKeyRequestModel] createApiKeyRequestModel (required):
-  Future<Response> createApiKeyWithHttpInfo(CreateApiKeyRequestModel createApiKeyRequestModel) async {
+  Future<Response> createApiKeyWithHttpInfo(
+      CreateApiKeyRequestModel createApiKeyRequestModel) async {
     // Verify required params are set.
     if (createApiKeyRequestModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: createApiKeyRequestModel');
+      throw ApiException(HttpStatus.badRequest,
+          'Missing required param: createApiKeyRequestModel');
     }
 
     final path = r'/api/auth/api-key';
@@ -37,20 +38,18 @@ class AuthApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -69,7 +68,8 @@ class AuthApi {
   /// Parameters:
   ///
   /// * [CreateApiKeyRequestModel] createApiKeyRequestModel (required):
-  Future<ApiKeyModel> createApiKey(CreateApiKeyRequestModel createApiKeyRequestModel) async {
+  Future<ApiKeyModel> createApiKey(
+      CreateApiKeyRequestModel createApiKeyRequestModel) async {
     final response = await createApiKeyWithHttpInfo(createApiKeyRequestModel);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -78,8 +78,9 @@ class AuthApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ApiKeyModel') as ApiKeyModel;
-        }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ApiKeyModel')
+          as ApiKeyModel;
+    }
     return Future<ApiKeyModel>.value(null);
   }
 
@@ -93,11 +94,12 @@ class AuthApi {
   Future<Response> deleteApiKeyWithHttpInfo(String keyId) async {
     // Verify required params are set.
     if (keyId == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: keyId');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: keyId');
     }
 
     final path = r'/api/auth/api-key/{keyId}'
-      .replaceAll('{' + 'keyId' + '}', keyId.toString());
+        .replaceAll('{' + 'keyId' + '}', keyId.toString());
 
     Object postBody;
 
@@ -106,20 +108,18 @@ class AuthApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>['ID_TOKEN'];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -148,7 +148,7 @@ class AuthApi {
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'bool') as bool;
-        }
+    }
     return Future<bool>.value(null);
   }
 
@@ -159,10 +159,12 @@ class AuthApi {
   /// Parameters:
   ///
   /// * [LoginPayloadModel] loginPayloadModel (required):
-  Future<Response> loginWithHttpInfo(LoginPayloadModel loginPayloadModel) async {
+  Future<Response> loginWithHttpInfo(
+      LoginPayloadModel loginPayloadModel) async {
     // Verify required params are set.
     if (loginPayloadModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: loginPayloadModel');
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: loginPayloadModel');
     }
 
     final path = r'/api/auth';
@@ -174,20 +176,18 @@ class AuthApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -215,8 +215,9 @@ class AuthApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'AuthUserModel') as AuthUserModel;
-        }
+      return apiClient.deserialize(_decodeBodyBytes(response), 'AuthUserModel')
+          as AuthUserModel;
+    }
     return Future<AuthUserModel>.value(null);
   }
 
@@ -231,20 +232,18 @@ class AuthApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>[];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -272,10 +271,12 @@ class AuthApi {
   /// Parameters:
   ///
   /// * [RefreshTokenPayloadModel] refreshTokenPayloadModel (required):
-  Future<Response> refreshTokenWithHttpInfo(RefreshTokenPayloadModel refreshTokenPayloadModel) async {
+  Future<Response> refreshTokenWithHttpInfo(
+      RefreshTokenPayloadModel refreshTokenPayloadModel) async {
     // Verify required params are set.
     if (refreshTokenPayloadModel == null) {
-     throw ApiException(HttpStatus.badRequest, 'Missing required param: refreshTokenPayloadModel');
+      throw ApiException(HttpStatus.badRequest,
+          'Missing required param: refreshTokenPayloadModel');
     }
 
     final path = r'/api/auth/refresh-token';
@@ -287,20 +288,18 @@ class AuthApi {
     final formParams = <String, String>{};
 
     final contentTypes = <String>['application/json'];
-    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final nullableContentType =
+        contentTypes.isNotEmpty ? contentTypes[0] : null;
     final authNames = <String>[];
 
-    if (
-      nullableContentType != null &&
-      nullableContentType.toLowerCase().startsWith('multipart/form-data')
-    ) {
+    if (nullableContentType != null &&
+        nullableContentType.toLowerCase().startsWith('multipart/form-data')) {
       bool hasFields = false;
       final mp = MultipartRequest(null, null);
       if (hasFields) {
         postBody = mp;
       }
-    } else {
-    }
+    } else {}
 
     return await apiClient.invokeAPI(
       path,
@@ -319,7 +318,8 @@ class AuthApi {
   /// Parameters:
   ///
   /// * [RefreshTokenPayloadModel] refreshTokenPayloadModel (required):
-  Future<RefreshTokenResponseModel> refreshToken(RefreshTokenPayloadModel refreshTokenPayloadModel) async {
+  Future<RefreshTokenResponseModel> refreshToken(
+      RefreshTokenPayloadModel refreshTokenPayloadModel) async {
     final response = await refreshTokenWithHttpInfo(refreshTokenPayloadModel);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
@@ -328,8 +328,10 @@ class AuthApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'RefreshTokenResponseModel') as RefreshTokenResponseModel;
-        }
+      return apiClient.deserialize(
+              _decodeBodyBytes(response), 'RefreshTokenResponseModel')
+          as RefreshTokenResponseModel;
+    }
     return Future<RefreshTokenResponseModel>.value(null);
   }
 }
