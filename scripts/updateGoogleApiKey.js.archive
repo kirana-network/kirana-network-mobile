@@ -1,0 +1,8 @@
+const fs = require("fs");
+const googleServices = require(__dirname.replace("scripts", "") + "android/app/google-services-template.json");
+googleServices.client.forEach(c => {
+    c.api_key.forEach(k => k.current_key = process.env.GOOGLE_API_KEY);
+});
+console.log("googleServices", JSON.stringify(googleServices));
+
+fs.writeFileSync(__dirname.replace("scripts", "") + "android/app/google-services.json", JSON.stringify(googleServices));

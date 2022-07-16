@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg1075"
+   version="1.1"
+   viewBox="0 0 25.303686 25.303337"
+   height="25.303337mm"
+   width="25.303686mm">
+  <defs
+     id="defs1069" />
+  <metadata
+     id="metadata1072">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-88.645774,-34.884045)"
+     id="layer1">
+    <path
+       d="m 101.29744,60.187383 v 0 c -6.987467,0 -12.651666,-5.6642 -12.651666,-12.651669 v 0 c 0,-6.987469 5.664199,-12.651669 12.651666,-12.651669 v 0 c 6.98747,0 12.65202,5.6642 12.65202,12.651669 v 0 c 0,6.987469 -5.66455,12.651669 -12.65202,12.651669"
+       style="fill:#f03f3f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03527778"
+       id="path46" />
+    <path
+       d="m 102.87895,47.205867 h -5.111402 l 0.006,1.46438 h 3.446642 c -0.40781,1.782586 -1.665819,2.875492 -3.354214,2.875492 -2.214739,0 -4.010025,-1.795286 -4.010025,-4.010025 0,-2.214739 1.795286,-4.010024 4.010025,-4.010024 1.053042,0 2.010834,0.406399 2.726264,1.070327 l 1.13101,-0.975077 c -0.99237,-0.9779 -2.354087,-1.581856 -3.857274,-1.581856 -3.036005,0 -5.49663,2.460978 -5.49663,5.49663 0,3.035653 2.460625,5.49663 5.49663,5.49663 2.915004,0 5.021794,-2.223558 5.021794,-5.259211 l -0.009,-0.567266"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03527778"
+       id="path48" />
+    <path
+       d="m 110.22554,47.266545 h -2.10996 v -2.109964 h -1.3462 v 2.109964 h -2.10997 v 1.3462 h 2.10997 v 2.109963 h 1.3462 v -2.109963 h 2.10996 v -1.3462"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.03527778"
+       id="path50" />
+  </g>
+</svg>

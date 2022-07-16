@@ -1,0 +1,18 @@
+{
+    "name": "play-store-manager",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "googleapis": "^66.0.0",
+      "js-yaml": "^3.14.1",
+      "lodash": "^4.17.20",
+      "yargs": "^16.2.0"
+    }
+  }
+  
