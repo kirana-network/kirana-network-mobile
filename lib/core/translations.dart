@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 class Translations {
   Translations(this.locale);
-  static String title = "FleetOnRoute";
+  static String title = "KiranaNetwork";
   final Locale locale;
 
   static Translations? of(BuildContext context) {
@@ -46,7 +46,7 @@ class Translations {
       "BACKGROUND_LOCATION_PERMISSION_REQUIRED":
           "Location permission is required",
       "BACKGROUND_LOCATION_PERMISSION_REQUIRED_MESSAGING_1":
-          "FleetOnRoute requires access to your location to provide updates to the clients and organization.",
+          "KiranaNetwork requires access to your location to provide updates to the clients and organization.",
       "APP_UPDATE_AVAILABLE": "An update is available",
       "APP_UPDATE_IS_REQUIRED":
           "Updating your app is required before continuing",

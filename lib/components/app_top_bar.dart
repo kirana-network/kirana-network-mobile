@@ -18,7 +18,7 @@ class AppTopBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: false,
       elevation: 0,
       title: Text(
-        "FleetOnRoute ${routeTitle != "" ? '- ' + routeTitle : ""}",
+        "kirana-network ${routeTitle != "" ? '- ' + routeTitle : ""}",
         style: TextStyle(color: Colors.white),
       ),
       leading: Container(),

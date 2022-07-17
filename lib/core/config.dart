@@ -8,8 +8,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 final PLAY_STORE_URL = (Platform.isAndroid)
-    ? "https://play.google.com/store/apps/details?id=com.fleetonroute.mobile"
-    : "https://apps.apple.com/us/app/fleetonroute/id1585593801";
+    ? "https://play.google.com/store/apps/details?id=network.kirana.mobile"
+    : "https://apps.apple.com/us/app/fleetonroute/id9999999999";
 
 class AppConfig {
   final String apiUrl;

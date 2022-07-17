@@ -10,7 +10,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
    <application
         android:label="network.kirana.mobile.Application"
-        android:name="KiranaNetwork"
+        android:name="network.kirana.mobile.Application"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name="io.flutter.embedding.android.FlutterActivity"

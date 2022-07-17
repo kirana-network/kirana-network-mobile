@@ -90,7 +90,7 @@ class _TripsScreenState extends State<TripsScreen> {
         key: Key("BottomNavbar"),
       ),
       body: Body(
-        sortOrder: selectedSortOrder!,
+        sortOrder: selectedSortOrder ?? SortOrder.Closest,
       ),
     );
   }

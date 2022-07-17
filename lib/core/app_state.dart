@@ -14,12 +14,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 final _logger = Logger("AppState");
 
 class AppState extends ChangeNotifier {
-  late AuthUserModel? authUser;
-  late UserProfileModel? userProfile;
-  late List<UserProfileOrganizationModel>? userProfileOrganizations;
-  late List<OrganizationModel>? organizations;
-  late GPSUnitModel? gpsUnit;
-  late UserCredential? authUserCredential;
+  late AuthUserModel? authUser = null;
+  late UserProfileModel? userProfile = null;
+  late List<UserProfileOrganizationModel>? userProfileOrganizations = null;
+  late List<OrganizationModel>? organizations = null;
+  late GPSUnitModel? gpsUnit = null;
+  late UserCredential? authUserCredential = null;
 
   late Position currentLocation;
   late StreamController<Position> locationStreamController =

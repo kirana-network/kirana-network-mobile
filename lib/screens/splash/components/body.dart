@@ -172,7 +172,7 @@ class _BodyState extends State<Body> {
             ],
           ),
           Text(
-            "FleetOnRoute",
+            "KiranaNetwork",
             textScaleFactor: 3,
             style: TextStyle(color: primaryColor),
           ),

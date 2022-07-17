@@ -47,7 +47,7 @@ void onStart() async {
 
 void _launch(FlutterBackgroundService service, Map<String, dynamic> event) {
   service.setNotificationInfo(
-    title: "FleetOnRoute",
+    title: "KiranaNetwork",
     content: event["content"],
   );
   _startBackgroundGpsUpdates(service);

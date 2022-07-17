@@ -14,21 +14,21 @@ import 'package:kirana_network_mobile/screens/trips/trips_screen/trips_screen.da
 final _logger = Logger("trips_screen.body");
 
 class Body extends StatefulWidget {
-  final SortOrder sortOrder;
+  SortOrder sortOrder = SortOrder.Closest;
   Body({required this.sortOrder});
 
   @override
   _BodyState createState() {
-    return _BodyState();
+    return _BodyState(sortOrder: this.sortOrder);
   }
 }
 
 class _BodyState extends State<Body> {
   List<TripModel> trips = [];
   bool loading = true;
-  late SortOrder sortOrder;
+  SortOrder sortOrder = SortOrder.Closest;
 
-  _BodyState() {
+  _BodyState({required this.sortOrder}) {
     init();
   }
 

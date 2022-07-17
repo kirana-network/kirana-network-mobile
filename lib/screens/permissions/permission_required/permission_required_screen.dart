@@ -58,7 +58,7 @@ class _PermissionRequiredScreenState extends State<PermissionRequiredScreen> {
                   style: screenHeadingTextStyle()
                       .merge(TextStyle(color: accentColor))),
               Text(
-                  "FleetOnRoute requires access to your location to provide updates to the clients and organization.",
+                  "KiranaNetwork requires access to your location to provide updates to the clients and organization.",
                   style: screenSubTitleTextStyle()),
               SizedBox(height: getProportionateScreenHeight(30)),
               BigButton(

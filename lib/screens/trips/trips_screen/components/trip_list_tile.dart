@@ -37,8 +37,8 @@ class TripListTile extends StatelessWidget {
       latitude: trip.location.latitude,
     );
     num? distance = computeDistance(a, b);
-    TripModel activeTrip =
-        (sl<AppState>().appSharedPreferences.getActiveTrip())!;
+    TripModel? activeTrip =
+        (sl<AppState>().appSharedPreferences.getActiveTrip());
     return Column(
       children: [
         ListTile(

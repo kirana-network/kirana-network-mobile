@@ -27,12 +27,12 @@ class MapPreview extends StatefulWidget {
 }
 
 class _MapPreviewState extends State<MapPreview> {
-  late String url;
+  late String? url = null;
   LatLng marker;
   double zoom;
-  final num height;
-  final num width;
-  final String organizationId;
+  num? height = null;
+  num? width = null;
+  String? organizationId = null;
   _MapPreviewState(
       {required this.marker,
       required this.zoom,
@@ -59,6 +59,6 @@ class _MapPreviewState extends State<MapPreview> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: url != null ? Image.network(url) : null);
+    return Container(child: url != null ? Image.network(url!) : null);
   }
 }
