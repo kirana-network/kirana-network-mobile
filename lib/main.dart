@@ -5,6 +5,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:fleetonrouteapi/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:flutter_background_service_android/flutter_background_service_android.dart';
+import 'package:flutter_background_service_ios/flutter_background_service_ios.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_log/quick_log.dart';
 import 'package:kirana_network_mobile/core/auth_utils.dart';
@@ -32,6 +34,7 @@ void main() async {
       onStart: onStart,
       isForegroundMode: false,
       autoStart: false,
+      foregroundServiceNotificationTitle: "KiranaNetwork",
     ),
     iosConfiguration: IosConfiguration(
       onBackground: onStart,
@@ -54,10 +57,19 @@ void startServiceIfActiveTrip() {
     _logger.fine("start service in foreground");
     Timer(
       Duration(seconds: 2),
-      () => FlutterBackgroundService().sendData({
-        "action": "setAsForeground",
-        "content": activeTrip.address ?? "ON_ROUTE"
-      }),
+      () {
+        var service = FlutterBackgroundService();
+        // if (service is AndroidServiceInstance) {
+        //   _logger.fine("AndroidServiceInstance");
+        // }
+        // if (service is IOSServiceInstance) {
+        //   _logger.fine("AndroidServiceInstance");
+        // }
+
+        // _logger.fine("service $service");
+        FlutterBackgroundService().startService().then(
+            (value) => FlutterBackgroundService().invoke('setAsBackground'));
+      },
     );
   }
 }

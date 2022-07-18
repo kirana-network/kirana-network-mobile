@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:fleetonrouteapi/api.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:flutter_html/shims/dart_ui_real.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:jwt_decode/jwt_decode.dart';
 import 'package:quick_log/quick_log.dart';
@@ -12,50 +13,61 @@ import 'package:kirana_network_mobile/core/app_state.dart';
 import 'package:kirana_network_mobile/core/config.dart';
 import 'package:kirana_network_mobile/core/tasks/current_location.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_background_service_android/flutter_background_service_android.dart';
+import 'package:flutter_background_service_ios/flutter_background_service_ios.dart';
 
 var _logger = Logger("background_service.dart");
 
-void onStart() async {
+Future<bool> onStart(ServiceInstance service) async {
   _logger.fine("onStart");
   WidgetsFlutterBinding.ensureInitialized();
+  DartPluginRegistrant.ensureInitialized();
 
-  final service = FlutterBackgroundService();
-  service.onDataReceived.listen((event) {
-    _logger.info("service.onDataReceived: $event");
-    if (event!["action"] == "setAsForeground") {
+  if (service is AndroidServiceInstance) {
+    service.on('setAsForeground').listen((event) {
       service.setAsForegroundService();
-      _launch(service, event);
-      return;
-    }
-
-    if (event["action"] == "setAsBackground") {
+    });
+    service.on('setAsBackground').listen((event) {
       service.setAsBackgroundService();
+    });
+  }
+
+  if (service is IOSServiceInstance) {
+    service.on('setAsForeground').listen((event) {
       _launch(service, event);
-      return;
-    }
-
-    if (event["action"] == "stopService") {
-      if (Platform.isAndroid) {
-        service.setAsBackgroundService();
-      } else {
-        service.stopService();
-      }
-      return;
-    }
+    });
+    service.on('setAsBackground').listen((event) {
+      service.invoke('setNotificationInfo',
+          {"title": "KiranaNetwork", "content": event?['content']});
+    });
+  }
+  service.on('stopService').listen((event) {
+    service.stopSelf();
   });
+
+  return true;
 }
 
-void _launch(FlutterBackgroundService service, Map<String, dynamic> event) {
-  service.setNotificationInfo(
-    title: "KiranaNetwork",
-    content: event["content"],
-  );
-  _startBackgroundGpsUpdates(service);
+void _launch(ServiceInstance service, Map<String, dynamic>? event) {
+  if (service is AndroidServiceInstance) {
+    service.setForegroundNotificationInfo(
+      content: event?['content'],
+      title: "KiranaNetwork",
+    );
+  }
+  if (service is IOSServiceInstance) {
+    service.invoke('setNotificationInfo', {
+      "title": "KiranaNetwork",
+      "content": event?["content"],
+    });
+  }
+
+  _startBackgroundGpsUpdates();
 }
 
-void _startBackgroundGpsUpdates(FlutterBackgroundService service) {
+void _startBackgroundGpsUpdates() {
   Timer.periodic(Duration(seconds: 5), (timer) async {
-    if (!(await service.isRunning())) {
+    if (!(await FlutterBackgroundService().isRunning())) {
       timer.cancel();
     }
     var position = await determinePosition();

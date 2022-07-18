@@ -2,6 +2,8 @@ import 'package:fleetonrouteapi/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:flutter_background_service_android/flutter_background_service_android.dart';
+import 'package:flutter_background_service_ios/flutter_background_service_ios.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 import 'package:maps_toolkit/maps_toolkit.dart';
@@ -176,8 +178,11 @@ class _BodyState extends State<Body> with WidgetsBindingObserver {
         ),
       );
     }
-    FlutterBackgroundService()
-        .sendData({"action": "setAsForeground", "content": trip.address});
+    FlutterBackgroundService().invoke('setAsForeground', {
+      "content": trip.address,
+      "title": "KiranaNetwork",
+    });
+    // .sendData({"action": "setAsForeground", "content": });
     // await Future.delayed(Duration(seconds: 3));
     // FlutterBackgroundService()
     //     .sendData({"action": "setAsForeground", "content": trip.address});
@@ -197,7 +202,14 @@ class _BodyState extends State<Body> with WidgetsBindingObserver {
     trip.tripStatus = TripModelTripStatusEnum.SCHEDULED;
     await updateTrip();
     await sl<AppState>().appSharedPreferences.clearActiveTrip();
-    FlutterBackgroundService().sendData({"action": "stopService"});
+    // FlutterBackgroundService().sendData({"action": "stopService"});
+    var service = FlutterBackgroundService();
+    if (service is AndroidServiceInstance) {
+      (service as AndroidServiceInstance).stopSelf();
+    }
+    if (service is IOSServiceInstance) {
+      (service as IOSServiceInstance).stopSelf();
+    }
   }
 
   Future updateTrip() async {

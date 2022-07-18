@@ -5,6 +5,8 @@ import 'package:fleetonrouteapi/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_background_service_android/flutter_background_service_android.dart';
+import 'package:flutter_background_service_ios/flutter_background_service_ios.dart';
 import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kirana_network_mobile/components/buttons.dart';
@@ -145,7 +147,17 @@ class _BodyState extends State<Body> {
     await sl<TripsApi>().updateTrip(trip.id, trip);
 
     await sl<AppState>().appSharedPreferences.clearActiveTrip();
-    FlutterBackgroundService().sendData({"action": "stopService"});
+    // FlutterBackgroundService().sendData({"action": "stopService"});
+
+    var service = FlutterBackgroundService();
+    if (service is AndroidServiceInstance) {
+      (service as AndroidServiceInstance).stopSelf();
+    }
+
+    if (service is IOSServiceInstance) {
+      (service as IOSServiceInstance).stopSelf();
+    }
+
     Navigator.pushReplacementNamed(context, TripsScreen.routeName);
   }
 }
