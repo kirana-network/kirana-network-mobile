@@ -25,10 +25,14 @@ Future<bool> onStart(ServiceInstance service) async {
 
   if (service is AndroidServiceInstance) {
     service.on('setAsForeground').listen((event) {
+      _logger.fine("setAsForeground called");
       service.setAsForegroundService();
+      _launch(service, event);
     });
     service.on('setAsBackground').listen((event) {
+      _logger.fine("setAsBackground called");
       service.setAsBackgroundService();
+      _launch(service, event);
     });
   }
 

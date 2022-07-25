@@ -67,8 +67,12 @@ void startServiceIfActiveTrip() {
         // }
 
         // _logger.fine("service $service");
-        FlutterBackgroundService().startService().then(
-            (value) => FlutterBackgroundService().invoke('setAsBackground'));
+        FlutterBackgroundService().startService().then((value) {
+          logger.fine("Service started");
+          FlutterBackgroundService().invoke('setAsBackground');
+        }).catchError((onError) {
+          logger.fine("Service started Failed! $onError");
+        });
       },
     );
   }
